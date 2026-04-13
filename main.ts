@@ -12,3 +12,9 @@ let startTime: number = 0        // ms – základ pro měření
 let score: number = 0
 
 let start:boolean = false
+let bothButtonsPressed:boolean = false
+
+input.onButtonPressed(Button.A, function(): boolean {
+    if (input.buttonIsPressed(Button.B))
+    return true
+})
