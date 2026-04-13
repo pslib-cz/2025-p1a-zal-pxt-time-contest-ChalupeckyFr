@@ -10,3 +10,5 @@ let state: GameState = GameState.Passive
 let targetInterval: number = 0   // sekundy (5–15)
 let startTime: number = 0        // ms – základ pro měření
 let score: number = 0
+
+let start:boolean = false
