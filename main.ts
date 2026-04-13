@@ -11,10 +11,25 @@ let targetInterval: number = 0   // sekundy (5–15)
 let startTime: number = 0        // ms – základ pro měření
 let score: number = 0
 
-let start:boolean = false
 let bothButtonsPressed:boolean = false
+let cas:number = 0
 
-input.onButtonPressed(Button.A, function(): boolean {
-    if (input.buttonIsPressed(Button.B))
-    return true
+input.onButtonPressed(Button.AB, function() {
+    bothButtonsPressed = true
+})
+
+let casPredZapnutim = input.runningTime()
+
+basic.forever(function(){
+    if (bothButtonsPressed) {
+        cas = randint(5, 15)
+        state = GameState.Started
+        basic.showIcon(IconNames.Pitchfork)
+        for (let i = 0; i < 3; i++) {
+        music.playTone(Note.G, 500)
+        basic.pause(500)
+        }
+        music.playTone(Note.C5, 500)
+        bothButtonsPressed = false
+    }
 })
